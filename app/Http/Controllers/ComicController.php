@@ -54,7 +54,7 @@ class ComicController extends Controller
         $comic->artists = json_encode(explode(',', $formData['artists']));
         $comic->writers = json_encode(explode(',', $formData['writers']));
         $comic->save();
-        return redirect()->route('home');
+        return redirect()->route('home.index');
         
     }
 
@@ -73,7 +73,9 @@ class ComicController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $comic=Comic::find($id);
+
+        return view('edit',compact('comic'));
     }
 
     /**
@@ -81,7 +83,20 @@ class ComicController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $comic = Comic::find($id);
+        $formData = $request->all();
+
+        $comic->title = $formData['title'];
+        $comic->description = $formData['description'];
+        $comic->thumb = $formData['thumb'];
+        $comic->price = $formData['price'];
+        $comic->series = $formData['series'];
+        $comic->sale_date =date('Y-m-d',strtotime($formData['sale_date']) );
+        $comic->type = $formData['type'];
+        $comic->artists = json_encode(explode(',', $formData['artists']));
+        $comic->writers = json_encode(explode(',', $formData['writers']));
+        $comic->save();
+        return redirect()->route('home.index');
     }
 
     /**
@@ -89,6 +104,10 @@ class ComicController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        
+        $comic->delete();
+
+        return redirect()->route('home.index');
     }
 }
