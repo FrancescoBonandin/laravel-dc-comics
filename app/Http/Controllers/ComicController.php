@@ -10,6 +10,13 @@ use App\Models\Comic;
 
 class ComicController extends Controller
 {
+
+    public function home(){
+
+        return view('home');
+
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -17,7 +24,7 @@ class ComicController extends Controller
     { 
         $comics=Comic::all();
 
-        return view('home',compact('comics'));
+        return view('index',compact('comics'));
     }
 
     /**
@@ -47,8 +54,7 @@ class ComicController extends Controller
         $comic->artists = json_encode(explode(',', $formData['artists']));
         $comic->writers = json_encode(explode(',', $formData['writers']));
         $comic->save();
-        return redirect('home');
-        // ->route('home');
+        return redirect()->route('home');
         
     }
 
