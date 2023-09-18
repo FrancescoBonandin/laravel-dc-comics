@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col">
                 <h1>
-                    Crea nuova pasta
+                    Crea nuovo comic
                 </h1>
             </div>
         </div>
