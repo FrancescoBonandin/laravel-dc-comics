@@ -57,6 +57,37 @@ class ComicController extends Controller
                 'writers'=>'required|string',
 
             ],
+            [
+
+                'title.required'=>'Il titolo è obbligatorio',
+                'title.min'=>'Il titolo è troppo corto, deve essere almeno 1 carattere',
+                'title.max'=>'Il titolo è troppo lungo, deve essere al massimo 100 caratteri',
+
+                'description.required'=>'La descrizione è obbligatoria',
+
+                'thumb.required'=>"Il percorso dell' immagine è obbligatoria",
+                'thumb.min'=>"Il percorso dell' immagine è troppo corto",
+                'thumb.max'=>"Il percorso dell' immagine è troppo lungo",
+
+                'price.required'=>"Il prezzo è obbligatorio",
+                'price.min'=>"Il prezzo deve essere maggiore di 0,00",
+                'price.max'=>"Il prezzo deve essere minore di 999,00",
+
+                'series.required'=>'La serie è obbligatorio',
+                'series.min'=>'La serie è troppo corto, deve essere almeno 1 carattere',
+                'series.max'=>'La serie è troppo lungo, deve essere al massimo 100 caratteri',
+
+                'sale_date.required'=>'La data è obbligatoria',
+                'sale_date.date'=>'La data non è inserita in un formato valido',
+
+                'type.required'=>'Il tipo è obbligatorio',
+                'type.min'=>'La serie è troppo corto, deve essere almeno 1 carattere',
+                'type.max'=>'La serie è troppo lungo, deve essere al massimo 32 caratteri',
+
+                'artists.required'=>"Gli artisti sono obbligatori",
+                'writers.required'=>"Gli scrittori sono obbligatori",
+
+            ]
             
 
         );
@@ -119,6 +150,37 @@ class ComicController extends Controller
                 'writers'=>'required|string',
 
             ],
+            [
+
+                'title.required'=>'Il titolo è obbligatorio',
+                'title.min'=>'Il titolo è troppo corto, deve essere almeno 1 carattere',
+                'title.max'=>'Il titolo è troppo lungo, deve essere al massimo 100 caratteri',
+
+                'description.required'=>'La descrizione è obbligatoria',
+
+                'thumb.required'=>"Il percorso dell' immagine è obbligatoria",
+                'thumb.min'=>"Il percorso dell' immagine è troppo corto",
+                'thumb.max'=>"Il percorso dell' immagine è troppo lungo",
+
+                'price.required'=>"Il prezzo è obbligatorio",
+                'price.min'=>"Il prezzo deve essere maggiore di 0,00",
+                'price.max'=>"Il prezzo deve essere minore di 999,00",
+
+                'series.required'=>'La serie è obbligatorio',
+                'series.min'=>'La serie è troppo corto, deve essere almeno 1 carattere',
+                'series.max'=>'La serie è troppo lungo, deve essere al massimo 100 caratteri',
+
+                'sale_date.required'=>'La data è obbligatoria',
+                'sale_date.date'=>'La data non è inserita in un formato valido',
+
+                'type.required'=>'Il tipo è obbligatorio',
+                'type.min'=>'La serie è troppo corto, deve essere almeno 1 carattere',
+                'type.max'=>'La serie è troppo lungo, deve essere al massimo 32 caratteri',
+
+                'artists.required'=>"Gli artisti sono obbligatori",
+                'writers.required'=>"Gli scrittori sono obbligatori",
+
+            ]
             
 
         );
