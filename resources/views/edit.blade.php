@@ -50,7 +50,7 @@
     
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" maxlength="1024" class="form-control @error('title') is-invalid @enderror"  id="title" name="title" value='{{old('title')}}' placeholder="Enter value..." required>
+                        <input type="text" maxlength="1024" class="form-control @error('title') is-invalid @enderror"  id="title" name="title" value='{{old('title', $comic->title)}}' placeholder="Enter value..." required>
                     </div>
 
                     @error('title')
@@ -61,7 +61,7 @@
     
                     <div class="mb-3">
                         <label for="description" class="form-label">description</label>
-                        <textarea  class="form-control @error('description') is-invalid @enderror"  id="description" name="description" placeholder="Enter value..." >{{old('description')}}</textarea>
+                        <textarea  class="form-control @error('description') is-invalid @enderror"  id="description" name="description" placeholder="Enter value..." >{{old('description', $comic->description)}}</textarea>
                     </div>
 
                     @error('description')
@@ -72,7 +72,7 @@
     
                     <div class="mb-3">
                         <label for="thumb" class="form-label">thumb</label>
-                        <input type="text" maxlength="1024" class="form-control @error('thumb') is-invalid @enderror"  id="thumb" name="thumb" value="{{old('thumb')}}" placeholder="Enter value..." required>
+                        <input type="text" maxlength="1024" class="form-control @error('thumb') is-invalid @enderror"  id="thumb" name="thumb" value="{{old('thumb', $comic->thumb)}}" placeholder="Enter value..." required>
                     </div>
                     
                     @error('thumb')
@@ -83,7 +83,7 @@
 
                     <div class="mb-3">
                         <label for="price" class="form-label">price</label>
-                        <input type="number" step="0.01" class="form-control  @error('price') is-invalid @enderror" id="price" name="price" value='{{old('price')}}' placeholder="Enter value..." required>
+                        <input type="number" step="0.01" class="form-control  @error('price') is-invalid @enderror" id="price" name="price" value='{{old('price',$comic->price)}}' placeholder="Enter value..." required>
                     </div>
 
                     @error('price')
@@ -94,7 +94,7 @@
     
                     <div class="mb-3">
                         <label for="series" class="form-label">series</label>
-                        <input type="text"  class="form-control  @error('series') is-invalid @enderror" maxlength="100" id="series" name="series" placeholder="Enter value..."required>
+                        <input type="text"  class="form-control  @error('series') is-invalid @enderror" maxlength="100" id="series" name="series" value='{{old('price',$comic->series)}}' placeholder="Enter value..."required>
                     </div>
                     
                     @error('series')
@@ -105,7 +105,7 @@
     
                     <div class="mb-3">
                         <label for="sale-date" class="form-label">sale date</label>
-                        <input type="date"  class="form-control @error('sale_date') is-invalid @enderror"  id="sale-date" name="sale_date" value='{{old('sale_date')}}' placeholder="Enter value..." required>
+                        <input type="date"  class="form-control @error('sale_date') is-invalid @enderror"  id="sale-date" name="sale_date" value='{{old('sale_date', $comic->sale_date)}}' placeholder="Enter value..." required>
                     </div>
                     
                     @error('sale_date')
@@ -116,7 +116,7 @@
     
                     <div class="mb-3">
                         <label for="type" class="form-label">type</label>
-                        <input type="text" maxlength="32"  class="form-control  @error('type') is-invalid @enderror" id="type" name="type" value='{{old('type')}}' rows="3" required>
+                        <input type="text" maxlength="32"  class="form-control  @error('type') is-invalid @enderror" id="type" name="type" value='{{old('type', $comic->type)}}' rows="3" required>
                     </div>
                     
                     @error('type')
@@ -127,7 +127,7 @@
 
                     <div class="mb-3">
                         <label for="artists" class="form-label">artists</label>
-                        <textarea  class="form-control  @error('artists') is-invalid @enderror" id="artists" name="artists" placeholder="Enter value..."required>{{old('artists')}}</textarea>
+                        <textarea  class="form-control  @error('artists') is-invalid @enderror" id="artists" name="artists" placeholder="Enter value..."required>{{old('artists', implode(', ',json_decode($comic->artists)))}}</textarea>
                     </div>
                     
                     @error('artists')
@@ -138,7 +138,7 @@
 
                     <div class="mb-3">
                         <label for="writers" class="form-label">writers</label>
-                        <textarea  class="form-control  @error('writers') is-invalid @enderror" id="writers" name="writers" placeholder="Enter value..."required>{{old('writers')}}</textarea>
+                        <textarea  class="form-control  @error('writers') is-invalid @enderror" id="writers" name="writers" placeholder="Enter value..."required>{{old('writers',implode(', ',json_decode( $comic->writers)))}}</textarea>
                     </div>
                     
                     @error('writers')
@@ -152,6 +152,7 @@
                             modifica
                         </button>
                     </div>
+
                 </form>
             </div>
         </div>
